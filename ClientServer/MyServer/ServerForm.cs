@@ -36,8 +36,8 @@ namespace MyServer
             new Dictionary<string, ThreadObject>();
 
         //List of CommandDataObject 
-        Dictionary<string, DataObject>CommandsDataSet =
-            new Dictionary<string, DataObject>();
+      /*  Dictionary<string, DataObject>CommandsDataSet =
+            new Dictionary<string, DataObject>();*/
 
         private Object __object = new Object();
 
@@ -179,10 +179,10 @@ namespace MyServer
                 {
                     string UID =
                         CommandDataObject.Instance.DecodeUIDFromMessage(Command);
-                    if (CommandsDataSet.ContainsKey(UID) == true)
+                   /* if (CommandsDataSet.ContainsKey(UID) == true)
                     {
                         //Get the CommandData Object
-                        DataObject CDO = CommandsDataSet[UID] as DataObject;
+                       /* DataObject CDO = CommandsDataSet[UID] as DataObject;
                         //Initialize the Command Property of CDO
                         CDO.Command =
                             CommandDataObject.Instance.DecodeMessageFromUID(Command);
@@ -200,7 +200,7 @@ namespace MyServer
                         CDO.UID = UID;
                         //Store the CDO for later processing
                         CommandsDataSet.Add(UID, CDO);
-                    }
+                    }*/
                 }
                 //Display the command in the command list box
                 Command =
@@ -229,7 +229,7 @@ namespace MyServer
                     Data= Encoding.ASCII.GetString(data, 0, bytes);
                 //Do something with the command
                 //Lets get the UID from the command
-                lock (__object)
+              /*  lock (__object)
                 {
                     string UID =
                         CommandDataObject.Instance.DecodeUIDFromMessage(Data);
@@ -255,7 +255,7 @@ namespace MyServer
                         //Store the CDO for later processing
                         CommandsDataSet.Add(UID, CDO);
                     }
-                }
+                }*/
                 //Display the command in the command list box
                 Data =
                     ((client.RemoteEndPoint) as IPEndPoint).Address.ToString() +
@@ -269,18 +269,18 @@ namespace MyServer
             }
         }
 
-        private void ProcessServerFunctions(DataObject CDO, Socket client)
+     /*   private void ProcessServerFunctions(DataObject CDO, Socket client)
         {
             if (CDO.Command == "LOGIN")
                 Login(CDO, client);
 
-        }
-        private void Login(DataObject CDO, Socket client)
+        }*/
+     /*   private void Login(DataObject CDO, Socket client)
         {
             //do Auth
             //if CDO.Data == "012345"
             //Authenticated
-        }
+        }*/
         private delegate void UpdateDataLBDel(string command);
         private void UpdateDataListBox(string command)
         {
